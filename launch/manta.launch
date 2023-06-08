@@ -20,25 +20,39 @@
   <arg name="acquisition_rate_enable" default="False"/>
   <!-- Trigger -->
   <arg name="trigger_source" default="FixedRate"/>
+  <!-- <arg name="trigger_source" default="Line1"/> -->
+
   <arg name="trigger_mode" default="On"/>
   <arg name="trigger_selector" default="FrameStart"/>
   <arg name="trigger_activation" default="RisingEdge"/>
   <arg name="trigger_delay" default="0.0"/>
   <!-- Exposure -->
-  <arg name="exposure" default="50000"/>
+  <arg name="exposure" default="100"/>
   <arg name="exposure_auto" default="Continuous"/>
+  <!-- Exposure Auto Algorithms -->
+  <!-- MEAN - The arithmetic mean of the histogram of the current image is
+        compared to ExposureAutoTarget, and the next image
+        adjusted in exposure time to meet this target. Bright areas
+        are allowed to saturate. -->
+  <!-- FitRange - The histogram of the current image is measured, and the
+        exposure time of the next image is adjusted so that bright
+        areas are not saturated. -->
+  <!-- <arg name="exposure_auto_alg" default="Mean"/> -->
   <arg name="exposure_auto_alg" default="FitRange"/>
   <arg name="exposure_auto_tol" default="5"/>
-  <arg name="exposure_auto_max" default="50000"/>
-  <arg name="exposure_auto_min" default="50000"/>
-  <arg name="exposure_auto_outliers" default="50000"/>
-  <arg name="exposure_auto_rate" default="50000"/>
-  <arg name="exposure_auto_target" default="50000"/>
+  <arg name="exposure_auto_max" default="15000"/>
+  <arg name="exposure_auto_min" default="30"/>
+  <!-- Exposure Auto Outliers -->
+  <!-- The total pixels from top of the distribution that are ignored by the auto exposure
+algorithm. -->
+  <arg name="exposure_auto_outliers" default="0"/>
+  <arg name="exposure_auto_rate" default="25"/>
+  <arg name="exposure_auto_target" default="50"/>
   <!-- Gain -->
   <arg name="gain" default="0"/>
   <arg name="gain_auto" default="Continuous"/>
   <arg name="gain_auto_adjust_tol" default="5"/>
-  <arg name="gain_auto_max" default="32"/>
+  <arg name="gain_auto_max" default="20"/>
   <arg name="gain_auto_min" default="0"/>
   <arg name="gain_auto_outliers" default="0"/>
   <arg name="gain_auto_rate" default="50"/>
@@ -48,7 +62,7 @@
   <arg name="balance_ratio_selector" default="Red"/>
   <arg name="whitebalance_auto" default="Continuous"/>
   <arg name="whitebalance_auto_tol" default="5"/>
-  <arg name="whitebalance_auto_rate" default="100"/>
+  <arg name="whitebalance_auto_rate" default="10"/>
   <!-- Binning and Decimation -->
   <arg name="binning_x" default="1"/>
   <arg name="binning_y" default="1"/>
@@ -62,7 +76,10 @@
   <!-- Pixel Format -->
   <arg name="pixel_format" default="BayerRG8"/>
   <!-- Bandwidth -->
-  <arg name="stream_bytes_per_second" default="45000000"/>
+  <!-- <arg name="stream_bytes_per_second" default="45000000"/> -->
+  <!-- <arg name="stream_bytes_per_second" default="90000000"/> -->
+  <arg name="stream_bytes_per_second" default="124000000"/>
+
   <!-- PTP Synchronization -->
   <arg name="ptp_mode" default="Off"/>
   <!-- GPIO -->
